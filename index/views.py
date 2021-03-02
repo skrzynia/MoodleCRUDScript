@@ -11,7 +11,7 @@ def index(request):
 		week = form.cleaned_data.get('week')
 		slide_link = form.cleaned_data.get('slide_link')
 		date = form.cleaned_data.get('date')
-		print(f"Your data is week: {week}, link: {slide_link}, date: {date}")
+
 		return HttpResponseRedirect('/')
 	else:
 		section_form = SectionForm()

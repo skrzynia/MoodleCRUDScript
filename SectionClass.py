@@ -21,4 +21,3 @@ class SectionClass:
 		"""
 
 
-print(SectionClass("https://mikhail-cct.github.io/ooapp2/wk4/#/"))
