@@ -1,7 +1,8 @@
-from HTMLCreator import createHTML,deleteHTML,createDir,isExisting
+from HTMLCreator import createHTML,deleteHTML
 from time import sleep
 import WebScrapper
 import os
+import MoodleCRUD
 
-title, html = WebScrapper.getTitleAndHTML("https://mikhail-cct.github.io/ooapp2/wk4/#/")
-createHTML(1, html)
+x = MoodleCRUD.LocalGetSections("8")
+print(x.getsections)

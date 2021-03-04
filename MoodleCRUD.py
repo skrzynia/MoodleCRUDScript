@@ -88,6 +88,6 @@ sec = LocalGetSections(courseid)
 # sec = LocalGetSections(courseid, [], [7186, 7187, 7188, 7189])
 # # Get sections ids of the course with the given numbers and given ids.
 # sec = LocalGetSections(courseid, [0, 1, 2, 3, 5, 6], [7186, 7187, 7188, 7189])
-sec2 = LocalUpdateSections(courseid,[{'section': 1,'summary' :"Witam"}])
-
-print(sec.getsections[1]['summary'])
+# sec2 = LocalUpdateSections(courseid,[{'section': 1,'summary' :"Witam"}])
+#
+# print(sec.getsections[1]['summary'])

@@ -23,7 +23,7 @@ def getVideo(date):
 		name, vid_id = tup
 		x = re.search(f"{date}", name)
 		if not x == None:
-			video_tag = f'<iframe src="https://drive.google.com/file/d/{vid_id}/preview" width="640" height="480"></iframe>'
+			video_tag = f'<iframe src="https://drive.google.com/file/d/{vid_id}/preview" width="640" height="480"></iframe><br><br>'
 			return video_tag
 
 

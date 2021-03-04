@@ -15,9 +15,6 @@ class SectionClass:
 		self.videoURL = getVideo(self.date)
 
 
-
-
-
 	def __str__(self):
 		return f"""This SectionClass contains {self.title} as Title,
 				{self.slideHTML} as HTML and {self.videoURL} as video	
