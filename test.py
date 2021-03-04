@@ -1,6 +1,11 @@
-from SectionClass import SectionClass
+from HTMLCreator import createHTML,deleteHTML,createDir
+import WebScrapper
+import os
 
 
-sclass = SectionClass("https://mikhail-cct.github.io/ooapp2/wk4/#/")
 
-print(sclass.title, sclass.slideHTML)
+createHTML(1,WebScrapper.getTitleAndHTML("https://mikhail-cct.github.io/ooapp2/wk4/#/")[1])
+
+
+
+

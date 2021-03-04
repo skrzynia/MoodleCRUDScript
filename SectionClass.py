@@ -1,4 +1,5 @@
-from WebScrapper import getTitle, getHTML
+from WebScrapper import getTitleAndHTML, getVideo
+
 
 class SectionClass:
 	title = ''
@@ -6,10 +7,14 @@ class SectionClass:
 	videoURL = ''
 
 
-	def __init__(self,slideURL):
+	def __init__(self,week,slideURL, date):
 		self.slideURL = slideURL
-		self.title = getTitle(self.slideURL)
-		self.slideHTML = getHTML(self.slideURL)
+		self.date = date
+		self.week = week
+		self.title, self.slideHTML = getTitleAndHTML(self.slideURL)
+		self.videoURL = getVideo(self.date)
+
+
 
 
 
