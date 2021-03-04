@@ -15,12 +15,12 @@ def index(request):
 		slide_link = form.cleaned_data.get('slide_link')
 		date = form.cleaned_data.get('date')
 		sc = SectionClass(week,slide_link,date)
-		creator.createDir(sc.week)
+		# creator.createDir(sc.week)
+		#
+		# if creator.isExisting(week):
+		#    creator.deleteHTML(week)
 
-		if creator.isExisting(week):
-			creator.deleteHTML(week)
-
-		creator.createHTML(1,sc.slideHTML)
+		# creator.createHTML(1,sc.slideHTML)
 		mc.LocalUpdateSections("8",[{'section': week,'summary': creator.getHTMLTag(week) + getVideo(date)}])
 
 

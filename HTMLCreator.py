@@ -3,12 +3,10 @@ import os
 
 
 def createHTML(num, code):
-	os.chdir(f"lectures\\wk{num}")
 
+	os.chdir(f"index\\lectures\\wk{num}")
 	file = open(f"index{num}.html","w+")
-
 	file.write(code)
-
 	file.close()
 
 
@@ -21,7 +19,7 @@ def deleteHTML(num):
 
 
 def createDir(num):
-	os.chdir("index\\lectures")
+	os.chdir('index\\lectures')
 	print(os.getcwd())
 	if os.path.exists(f"wk{num}"):
 		arr = os.listdir()
@@ -30,10 +28,13 @@ def createDir(num):
 	else:
 		try:
 			os.mkdir(f"wk{num}")
+			return ;
 		except:
 			print("Creation folder failed")
 		else:
 			print("Successfully created the folder")
+		finally:
+			return;
 
 
 def isExisting(num):
