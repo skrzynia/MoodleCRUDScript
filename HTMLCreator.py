@@ -19,5 +19,5 @@ def deleteHTML(num):
 
 
 
-def getHTMLTag(num):
-	return f"<a href=https://github.com/skrzynia/MoodleCRUDScript/blob/master/index/lectures/wk1/index1.html>Week {num} slides!</a><br><br>"
+def getHTMLTag(num,url):
+	return f"<a href={url}.html>Week {num} slides!</a><br><br>"

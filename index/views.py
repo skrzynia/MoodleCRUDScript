@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from SectionClass import SectionClass
 from .forms import SectionForm
 import HTMLCreator as creator
+import PDFCreator as pdf
 import MoodleCRUD as mc
 from WebScrapper import getTitleAndHTML,getVideo
 # Create your views here.
@@ -16,8 +17,9 @@ def index(request):
 		date = form.cleaned_data.get('date')
 		sc = SectionClass(week,slide_link,date)
 		title,html = getTitleAndHTML(slide_link)
-		creator.createHTML(1,sc.slideHTML)
-		mc.LocalUpdateSections("8",[{'section': week,'summary': creator.getHTMLTag(week) + getVideo(date), 'name': title}])
+		creator.createHTML(week,sc.slideHTML)
+		pdf.printToPdf(week,slide_link)
+		mc.LocalUpdateSections("8",[{'section': week,'summary': creator.getHTMLTag(week,str(slide_link)) + getVideo(date), 'name': title}])
 
 
 		return HttpResponseRedirect('/')
@@ -27,3 +29,4 @@ def index(request):
 			'SectionForm': section_form
 		}
 		return render(request, 'index/index.html', context=context)
+
