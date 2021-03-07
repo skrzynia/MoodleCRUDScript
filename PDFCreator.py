@@ -2,6 +2,7 @@ from selenium import webdriver
 import time
 import os
 import json
+import re
 
 def printToPdf(num,url):
 	path = os.getcwd()
@@ -46,6 +47,18 @@ def manageURL(url):
 	return new_url
 
 
+def getPDFName(num):
+	os.chdir(f"index\\lectures\\wk{num}\\")
+	print(os.getcwd())
+	arr = os.listdir(os.getcwd())
+
+	for i in arr:
+
+		if re.search("pdf",i):
+
+			return i
 
 
 
+def getPDFTag(num):
+	return f"<a href=/wk{num}>Get PDF File !</a><br><br>"

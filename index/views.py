@@ -6,6 +6,8 @@ import HTMLCreator as creator
 import PDFCreator as pdf
 import MoodleCRUD as mc
 from WebScrapper import getTitleAndHTML,getVideo
+import re
+from django.http import FileResponse, Http404
 # Create your views here.
 
 
@@ -19,7 +21,7 @@ def index(request):
 		title,html = getTitleAndHTML(slide_link)
 		creator.createHTML(week,sc.slideHTML)
 		pdf.printToPdf(week,slide_link)
-		mc.LocalUpdateSections("8",[{'section': week,'summary': creator.getHTMLTag(week,str(slide_link)) + getVideo(date), 'name': title}])
+		mc.LocalUpdateSections("8",[{'section': week,'summary': creator.getHTMLTag(week,str(slide_link)) + getVideo(date) +pdf.getPDFTag(week), 'name': title}])
 
 
 		return HttpResponseRedirect('/')
@@ -29,4 +31,14 @@ def index(request):
 			'SectionForm': section_form
 		}
 		return render(request, 'index/index.html', context=context)
+
+
+def files(request, num):
+	try:
+		return FileResponse(open(pdf.getPDFName(num), 'rb'), content_type='application/pdf')
+	except FileNotFoundError:
+		raise Http404()
+
+
+
 
