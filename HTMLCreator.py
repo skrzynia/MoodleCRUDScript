@@ -20,4 +20,4 @@ def deleteHTML(num):
 
 
 def getHTMLTag(num,url):
-	return f"<a href={url}.html>Week {num} slides!</a><br><br>"
+	return f"<a href={url}.html target='_blank'>Week {num} slides!</a><br><br>"

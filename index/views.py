@@ -21,7 +21,7 @@ def index(request):
 		title,html = getTitleAndHTML(slide_link)
 		creator.createHTML(week,sc.slideHTML)
 		pdf.printToPdf(week,slide_link)
-		mc.LocalUpdateSections("8",[{'section': week,'summary': creator.getHTMLTag(week,str(slide_link)) + getVideo(date) +pdf.getPDFTag(week), 'name': title}])
+		mc.LocalUpdateSections("8",[{'section': week,'summary': creator.getHTMLTag(week,str(slide_link)) + getVideo(date) +pdf.getPDFTag(slide_link), 'name': title}])
 
 
 		return HttpResponseRedirect('/')

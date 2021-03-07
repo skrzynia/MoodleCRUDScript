@@ -38,7 +38,7 @@ def manageURL(url):
 	new_url = ""
 	for i in url:
 
-		if ord(i) == 35:
+		if ord(i) == 35: #
 			new_url += ("?print-pdf")
 			new_url += (i)
 		else:
@@ -60,5 +60,6 @@ def getPDFName(num):
 
 
 
-def getPDFTag(num):
-	return f"<a href=/wk{num}>Get PDF File !</a><br><br>"
+def getPDFTag(url):
+	name = manageURL(url)
+	return f"<a href={name} target='_blank'>Get PDF File !</a><br><br>"
